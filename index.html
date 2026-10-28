@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>TurboDownload — مدير تحميل سريع للويندوز مع إضافة للمتصفح</title>
+  <meta name="description" content="TurboDownload: مدير تحميل قوي للويندوز بتحميلات متزامنة، محدد سرعة، جدولة، التحقق SHA-256، التقاط الفيديو وإضافة لمتصفحي Edge و Chrome.">
+  <meta name="theme-color" content="#0d0f14">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="TurboDownload — مدير تحميل سريع">
+  <meta property="og:description" content="حمّل أسرع، نظّم ملفاتك تلقائياً، والتقط كل تحميل من المتصفح.">
+  <meta property="og:image" content="https://anes528.github.iostatic/img/icon256.png">
+  <link rel="icon" href="static/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" href="static/img/favicon-32.png">
+  <link rel="apple-touch-icon" href="static/img/icon128.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap">
+  <link rel="stylesheet" href="static/css/style.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"TurboDownload","operatingSystem":"Windows","applicationCategory":"UtilitiesApplication","softwareVersion":"1.0"}
+  </script>
+</head>
+<body>
+
+<!-- أيقونات SVG -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-zap" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></symbol>
+    <symbol id="i-gauge" viewBox="0 0 24 24"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></symbol>
+    <symbol id="i-folder" viewBox="0 0 24 24"><path d="M20 20a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M8 16H3v5"/></symbol>
+    <symbol id="i-clip" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/></symbol>
+    <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><path d="m16 13 5.22 3.48a.5.5 0 0 0 .78-.42V7.94a.5.5 0 0 0-.78-.42L16 11"/><rect x="2" y="6" width="14" height="12" rx="2"/></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+    <symbol id="i-monitor" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="3" rx="2"/><line x1="8" x2="16" y1="21" y2="21"/><line x1="12" x2="12" y1="17" y2="21"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" x2="20" y1="7" y2="7"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="17" y2="17"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></symbol>
+  </defs>
+</svg>
+
+<div class="bg-grid" aria-hidden="true"></div>
+<div class="bg-glow g1" aria-hidden="true"></div>
+<div class="bg-glow g2" aria-hidden="true"></div>
+
+<!-- ═════════ الشريط العلوي ═════════ -->
+<header class="nav" id="nav">
+  <div class="container nav-in">
+    <a href="#top" class="brand" aria-label="TurboDownload">
+      <img src="static/img/icon48.png" width="36" height="36" alt="" class="brand-ico">
+      <span>Turbo<b>Download</b></span>
+    </a>
+    <nav class="links" id="links" aria-label="التنقل الرئيسي">
+      <a href="#features">الميزات</a>
+      <a href="#preview">المعاينة</a>
+      <a href="#steps">كيف أبدأ؟</a>
+      <a href="#faq">أسئلة شائعة</a>
+      <a href="downloads/TurboDownload_App.zip" download class="btn btn-sm btn-primary nav-cta"><svg class="ic"><use href="#i-download"/></svg> تحميل</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="القائمة" aria-expanded="false" aria-controls="links">
+      <svg class="ic"><use href="#i-menu"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ═════════ القسم الرئيسي ═════════ -->
+<section class="hero">
+  <div class="container hero-in">
+    <div class="hero-text">
+      <span class="pill reveal"><i class="dot"></i> الإصدار 1.0 · لويندوز</span>
+      <h1 class="reveal d1">حمّل بسرعة <span class="grad">التوربو</span>،<br>وبدون أي تعقيد.</h1>
+      <p class="lead reveal d2">
+        TurboDownload مدير تحميل قوي يقسّم الملفات ويحمّلها بالتوازي، ويلتقط تحميلات متصفحك تلقائياً،
+        وينظّم ملفاتك في مجلداتها، ويتحقق من سلامتها — كل ذلك بواجهة داكنة أنيقة.
+      </p>
+
+      <div class="cta-row reveal d3">
+        <a href="downloads/TurboDownload_App.zip" download class="btn btn-primary btn-xl cta" id="mainCta" data-track="app">
+          <span class="cta-ico"><svg class="ic"><use href="#i-download"/></svg></span>
+          <span class="cta-txt">
+            <strong>تحميل TurboDownload</strong>
+            <small>ويندوز · <bdi>15.3 MB</bdi></small>
+          </span>
+          <i class="shine"></i>
+        </a>
+        <a href="#preview" class="btn btn-ghost btn-xl">شاهد المعاينة</a>
+      </div>
+
+      <ul class="trust reveal d4">
+        <li><svg class="ic"><use href="#i-shield"/></svg> بصمة SHA-256 للتحقق</li>
+        <li><svg class="ic"><use href="#i-monitor"/></svg> Windows</li>
+        <li><svg class="ic"><use href="#i-plug"/></svg> Edge & Chrome</li>
+      </ul>
+    </div>
+
+    <!-- نافذة التطبيق -->
+    <div class="hero-visual reveal d2" id="tilt">
+      <div class="float-chip c1"><svg class="ic"><use href="#i-zap"/></svg> 12.4 MB/s</div>
+      <div class="float-chip c2"><svg class="ic"><use href="#i-shield"/></svg> SHA-256 ✓</div>
+      <div class="win">
+        <div class="win-bar">
+          <img src="static/img/favicon-32.png" width="16" height="16" alt="">
+          <span>TurboDownload</span>
+          <em class="win-btns"><i></i><i></i><i></i></em>
+        </div>
+        <div class="win-body">
+          <div class="dl" data-speed="9.8" data-start="62">
+            <div class="dl-top"><b>ubuntu-24.04-desktop.iso</b><span class="spd">9.8 MB/s</span></div>
+            <div class="bar"><i style="--p:62%"></i></div>
+            <div class="dl-meta"><span class="pct">62%</span><span>3.1 GB / 5.0 GB</span></div>
+          </div>
+          <div class="dl" data-speed="2.1" data-start="35">
+            <div class="dl-top"><b>project-backup.zip</b><span class="spd">2.1 MB/s</span></div>
+            <div class="bar"><i style="--p:35%"></i></div>
+            <div class="dl-meta"><span class="pct">35%</span><span>420 MB / 1.2 GB</span></div>
+          </div>
+          <div class="dl" data-speed="0.6" data-start="88">
+            <div class="dl-top"><b>lecture-07.mp4</b><span class="spd">0.6 MB/s</span></div>
+            <div class="bar"><i style="--p:88%"></i></div>
+            <div class="dl-meta"><span class="pct">88%</span><span>264 MB / 300 MB</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- شريط الأرقام -->
+<section class="stats">
+  <div class="container stats-in">
+    <div class="stat reveal"><b>متزامنة</b><span>تحميلات متعددة معاً</span></div>
+    <div class="stat reveal d1"><b>SHA-256</b><span>تحقق من سلامة الملف</span></div>
+    <div class="stat reveal d2"><b>Edge · Chrome</b><span>إضافة التقاط تلقائي</span></div>
+    <div class="stat reveal d3"><b>15.3 MB</b><span>حجم الحزمة</span></div>
+  </div>
+</section>
+
+<!-- ═════════ الميزات ═════════ -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">الميزات</span>
+      <h2>كل ما تحتاجه من مدير تحميل <span class="grad">في مكان واحد</span></h2>
+      <p>أدوات عملية صُممت لتوفر وقتك وتحمي ملفاتك، دون إبطاء جهازك.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card reveal"><div class="ico"><svg class="ic"><use href="#i-layers"/></svg></div><h3>تحميلات متزامنة</h3><p>قائمة تحميلات منظمة تشغّل عدة ملفات في نفس الوقت مع شريط تقدم وسرعة لكل ملف.</p></article>
+      <article class="card reveal d1"><div class="ico"><svg class="ic"><use href="#i-gauge"/></svg></div><h3>محدد السرعة</h3><p>حدّد أقصى سرعة للتحميل حتى يبقى الإنترنت متاحاً لباقي أعمالك.</p></article>
+      <article class="card reveal d2"><div class="ico"><svg class="ic"><use href="#i-clock"/></svg></div><h3>جدولة وإطفاء تلقائي</h3><p>ابدأ التحميل في وقت تختاره، وأطفئ الجهاز تلقائياً عند انتهاء كل شيء.</p></article>
+
+      <article class="card reveal"><div class="ico"><svg class="ic"><use href="#i-history"/></svg></div><h3>سجل التحميلات</h3><p>ارجع لأي تحميل سابق وافتح الملف أو مجلده بنقرة واحدة.</p></article>
+      <article class="card reveal d1"><div class="ico"><svg class="ic"><use href="#i-folder"/></svg></div><h3>تصنيف تلقائي</h3><p>تُرتَّب الملفات في مجلدات حسب نوعها: فيديو، موسيقى، مستندات، برامج وغيرها.</p></article>
+      <article class="card reveal d2"><div class="ico"><svg class="ic"><use href="#i-shield"/></svg></div><h3>تحقق SHA-256</h3><p>قارن بصمة الملف بعد التحميل للتأكد أنه سليم ولم يُعدَّل أو يتلف.</p></article>
+
+      <article class="card reveal"><div class="ico"><svg class="ic"><use href="#i-refresh"/></svg></div><h3>تجديد الروابط المنتهية</h3><p>إذا انتهت صلاحية رابط التحميل، جدّده وأكمل من حيث توقفت.</p></article>
+      <article class="card reveal d1"><div class="ico"><svg class="ic"><use href="#i-clip"/></svg></div><h3>التقاط من الحافظة</h3><p>انسخ أي رابط وسيلتقطه التطبيق مباشرة ويعرض لك خيار التحميل.</p></article>
+      <article class="card reveal d2"><div class="ico"><svg class="ic"><use href="#i-globe"/></svg></div><h3>دعم البروكسي</h3><p>مرّر تحميلاتك عبر خادم وسيط عند الحاجة بإعدادات بسيطة.</p></article>
+
+      <article class="card reveal"><div class="ico"><svg class="ic"><use href="#i-video"/></svg></div><h3>التقاط الفيديو</h3><p>اكتشف روابط الفيديو في الصفحات وحمّلها مباشرة من المتصفح.</p></article>
+      <article class="card reveal d1"><div class="ico"><svg class="ic"><use href="#i-monitor"/></svg></div><h3>أيقونة في شريط المهام</h3><p>يعمل بهدوء في الخلفية ويبقى في متناولك من أيقونة الـ Tray.</p></article>
+      <article class="card reveal d2"><div class="ico"><svg class="ic"><use href="#i-plug"/></svg></div><h3>إضافة للمتصفح</h3><p>تلتقط تحميلات Edge و Chrome تلقائياً وتمررها للتطبيق، وإن كان مغلقاً يحمّل المتصفح كالمعتاد.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ المعاينة ═════════ -->
+<section class="section alt" id="preview">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">المعاينة</span>
+      <h2>نظرة من <span class="grad">الداخل</span></h2>
+      <p>واجهة داكنة مريحة للعين، وألوان خضراء واضحة تدل على الحالة.</p>
+    </div>
+
+    <div class="tabs reveal" role="tablist" aria-label="معاينة التطبيق">
+      <button role="tab" aria-selected="true" aria-controls="p1" id="t1" class="tab on">قائمة التحميلات</button>
+      <button role="tab" aria-selected="false" aria-controls="p2" id="t2" class="tab">الجدولة والسرعة</button>
+      <button role="tab" aria-selected="false" aria-controls="p3" id="t3" class="tab">إضافة المتصفح</button>
+    </div>
+
+    <div class="stage reveal d1">
+      <!-- 1 -->
+      <div class="panel on" id="p1" role="tabpanel" aria-labelledby="t1">
+        <div class="win wide">
+          <div class="win-bar"><img src="static/img/favicon-32.png" width="16" height="16" alt=""><span>TurboDownload — التحميلات</span><em class="win-btns"><i></i><i></i><i></i></em></div>
+          <div class="win-body">
+            <table class="tbl">
+              <thead><tr><th>الملف</th><th>الحالة</th><th>السرعة</th><th>التقدم</th></tr></thead>
+              <tbody>
+                <tr><td>setup-installer.exe</td><td><span class="tag ok">يعمل</span></td><td>8.4 MB/s</td><td><div class="bar sm"><i style="--p:74%"></i></div></td></tr>
+                <tr><td>holiday-video.mp4</td><td><span class="tag ok">يعمل</span></td><td>3.2 MB/s</td><td><div class="bar sm"><i style="--p:48%"></i></div></td></tr>
+                <tr><td>design-assets.rar</td><td><span class="tag wait">مجدول</span></td><td>—</td><td><div class="bar sm"><i style="--p:0%"></i></div></td></tr>
+                <tr><td>report-final.pdf</td><td><span class="tag done">مكتمل ✓</span></td><td>—</td><td><div class="bar sm"><i style="--p:100%"></i></div></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden>
+        <div class="win wide">
+          <div class="win-bar"><img src="static/img/favicon-32.png" width="16" height="16" alt=""><span>TurboDownload — الإعدادات</span><em class="win-btns"><i></i><i></i><i></i></em></div>
+          <div class="win-body settings">
+            <div class="set-row"><span>تفعيل محدد السرعة</span><span class="sw on"><i></i></span></div>
+            <div class="set-row"><span>الحد الأقصى للسرعة</span><div class="range"><i style="--p:55%"></i></div><b>5 MB/s</b></div>
+            <div class="set-row"><span>بدء التحميل في</span><span class="field">23:30</span></div>
+            <div class="set-row"><span>إطفاء الجهاز عند الانتهاء</span><span class="sw on"><i></i></span></div>
+            <div class="set-row"><span>التقاط الروابط من الحافظة</span><span class="sw on"><i></i></span></div>
+            <div class="set-row"><span>تصنيف الملفات تلقائياً</span><span class="sw on"><i></i></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3 : مطابقة لنافذة الإضافة الحقيقية -->
+      <div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden>
+        <div class="ext-wrap">
+          <div class="ext">
+            <div class="ext-head">⚡ <b>TurboDownload</b></div>
+            <div class="ext-status"><span class="dot"></span><span>Connected to TurboDownload Pro</span></div>
+            <div class="ext-row"><span>Send downloads to the app</span><span class="sw on"><i></i></span></div>
+            <div class="ext-row"><span>App port</span><span class="field">49731</span></div>
+            <div class="ext-btn">Test connection</div>
+            <div class="ext-hint">Keep TurboDownload Pro open. If it is closed, the browser downloads normally.</div>
+          </div>
+          <div class="ext-note">
+            <h3>تُرسل تحميلات المتصفح للتطبيق تلقائياً</h3>
+            <p>تثبّت الإضافة مرة واحدة، وبعدها يلتقط TurboDownload كل تحميل يبدأ في Edge أو Chrome. إذا كان التطبيق مغلقاً يعود التحميل للمتصفح فلا يضيع منك شيء.</p>
+            
+            <a href="downloads/TurboDownload_Extension.zip" download class="btn btn-ghost" data-track="ext"><svg class="ic"><use href="#i-plug"/></svg> تحميل الإضافة (<bdi>22 KB</bdi>)</a>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ الخطوات ═════════ -->
+<section class="section" id="steps">
+  <div class="container">
+    <div class="sec-head reveal">
+      <span class="eyebrow">البدء</span>
+      <h2>جاهز في <span class="grad">ثلاث خطوات</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><span class="num">1</span><h3>حمّل الحزمة</h3><p>اضغط زر التحميل واحفظ ملف الـ ZIP على جهازك.</p></div>
+      <div class="step reveal d1"><span class="num">2</span><h3>فك الضغط وشغّل</h3><p>فك الضغط ثم شغّل <code>TurboDownload.exe</code> — لا يحتاج تثبيتاً.</p></div>
+      <div class="step reveal d2"><span class="num">3</span><h3>أضف إضافة المتصفح</h3><p>من صفحة الإضافات في Edge أو Chrome فعّل وضع المطور ثم «تحميل إضافة غير مضغوطة».</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ الأسئلة ═════════ -->
+<section class="section alt" id="faq">
+  <div class="container narrow">
+    <div class="sec-head reveal">
+      <span class="eyebrow">أسئلة شائعة</span>
+      <h2>إجابات <span class="grad">سريعة</span></h2>
+    </div>
+    <div class="faq reveal">
+      <details>
+        <summary>ظهرت لي رسالة SmartScreen عند التشغيل، هل هذا طبيعي؟</summary>
+        <p>نعم، قد يحذّر ويندوز من أي برنامج جديد غير موقّع رقمياً. اضغط «مزيد من المعلومات» ثم «تشغيل على أي حال». ويمكنك مقارنة بصمة SHA-256 أسفل الصفحة مع ملفك للتأكد أنه الملف الأصلي.</p>
+      </details>
+      <details>
+        <summary>على أي أنظمة يعمل؟</summary>
+        <p>يعمل على ويندوز. وإضافة المتصفح تدعم Microsoft Edge و Google Chrome.</p>
+      </details>
+      <details>
+        <summary>ماذا يحدث لو كان التطبيق مغلقاً؟</summary>
+        <p>تعيد الإضافة التحميل إلى المتصفح تلقائياً، فلا يضيع أي تحميل.</p>
+      </details>
+      <details>
+        <summary>كيف أتحقق أن الملف سليم؟</summary>
+        <p>احسب بصمة SHA-256 لملف الـ ZIP (في PowerShell: <code>Get-FileHash .\TurboDownload_App.zip</code>) وقارنها بالبصمة المعروضة أسفل الصفحة.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════ دعوة أخيرة ═════════ -->
+<section class="final">
+  <div class="container">
+    <div class="final-card reveal">
+      <img src="static/img/icon128.png" width="84" height="84" alt="" class="final-ico">
+      <h2>جرّب سرعة <span class="grad">التوربو</span> الآن</h2>
+      <p>حمّل TurboDownload وابدأ في ثوانٍ.</p>
+      <a href="downloads/TurboDownload_App.zip" download class="btn btn-primary btn-xl cta" data-track="app">
+        <span class="cta-ico"><svg class="ic"><use href="#i-download"/></svg></span>
+        <span class="cta-txt"><strong>تحميل للويندوز</strong><small><bdi>15.3 MB</bdi> · الإصدار 1.0</small></span>
+        <i class="shine"></i>
+      </a>
+      
+      <div class="hash">
+        <span>SHA-256</span>
+        <code id="hashVal">ffcd55ad3c9aae10c73a35d498745b4a3006b05d59a8394f7747ecc3453b9e88</code>
+        <button type="button" id="copyHash" class="copy" aria-label="نسخ البصمة"><svg class="ic"><use href="#i-copy"/></svg></button>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═════════ التذييل ═════════ -->
+<footer class="footer">
+  <div class="container foot-in">
+    <div class="foot-brand">
+      <a href="#top" class="brand"><img src="static/img/icon48.png" width="32" height="32" alt=""><span>Turbo<b>Download</b></span></a>
+      <p>مدير تحميل سريع ومنظّم للويندوز.</p>
+    </div>
+    <nav class="foot-links" aria-label="روابط مفيدة">
+      <a href="#features">الميزات</a>
+      <a href="#preview">المعاينة</a>
+      <a href="#steps">كيف أبدأ؟</a>
+      <a href="#faq">أسئلة شائعة</a>
+      <a href="downloads/TurboDownload_App.zip" download>تحميل التطبيق</a>
+      <a href="downloads/TurboDownload_Extension.zip" download>إضافة المتصفح</a>
+      
+    </nav>
+  </div>
+  <div class="container copy-row">© 2026 TurboDownload. جميع الحقوق محفوظة.</div>
+</footer>
+
+<script src="static/js/main.js" defer></script>
+</body>
+</html>
